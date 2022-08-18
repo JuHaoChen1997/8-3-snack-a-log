@@ -10,18 +10,18 @@ function SnackNewForm() {
   const [newSnack, setNewSnack] = useState({
     name: "",
     image: "",
-    fiber: null,
-    protein: null,
-    added_sugar: null,
+    fiber: "",
+    protein: "",
+    added_sugar: "",
   });
 
   const navigate = useNavigate();
 
   const addNewSnack = (newSnack) => {
     axios
-      .post(`${API}/snacks/new`, newSnack)
+      .post(`${API}/snacks/`, newSnack)
       .then(() => {
-        navigate("/snacks");
+        // navigate("/snacks");
       })
       .catch((error) => console.error("catch", error));
   };
@@ -31,17 +31,76 @@ function SnackNewForm() {
   };
 
   const handeleSubmit = (event) => {
-    event.preventDedault();
+    event.preventDefault();
     addNewSnack(newSnack);
+    navigate("/snacks");
   };
 
   return (
     <section>
       <form onSubmit={handeleSubmit}>
         <div>
-          <label></label>
+          <label htmlFor="name">Name: </label>
+          <input
+            id="name"
+            value={newSnack.name}
+            type="text"
+            onChange={handleTextChange}
+            required
+          ></input>
         </div>
+        <br />
+        <div>
+          <label htmlFor="image">Image: </label>
+          <input
+            id="image"
+            value={newSnack.image}
+            type="text"
+            onChange={handleTextChange}
+            required
+          ></input>
+        </div>
+        <br />
+        <div>
+          <label htmlFor="fiber">Fiber: </label>
+          <input
+            id="fiber"
+            value={newSnack.fiber}
+            type="number"
+            onChange={handleTextChange}
+            required
+          ></input>
+        </div>
+        <br />
+        <div>
+          <label htmlFor="protein">Protein: </label>
+          <input
+            id="protein"
+            value={newSnack.protein}
+            type="number"
+            onChange={handleTextChange}
+            required
+          ></input>
+        </div>
+        <br />
+        <div>
+          <label htmlFor="added_sugar">Added Sugar: </label>
+          <input
+            id="added_sugar"
+            value={newSnack.added_sugar}
+            type="number"
+            onChange={handleTextChange}
+            required
+          ></input>
+        </div>
+        <br />
+        <input type="submit" value="Create New Snack" />
       </form>
+      <button type="button">
+        <Link to="/snacks">Back</Link>
+      </button>
     </section>
   );
 }
+
+export default SnackNewForm;

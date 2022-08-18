@@ -12,13 +12,12 @@ import FourOFour from "./pages/FourOFour";
 function App() {
   return (
     <div className="App">
-      <main></main>
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/snacks" element={<Index />} />
-        {/* <Route path="/snacks/new" element={<New />} />
-        <Route path="/snacks/:snackId/edit" element={<Edit />} /> */}
+        <Route path="/snacks/new" element={<New />} />
+        {/* <Route path="/snacks/:snackId/edit" element={<Edit />} /> */}
         <Route path="/snacks/:snackId" element={<Show />} />
         <Route path="*" element={<FourOFour />} />
       </Routes>
