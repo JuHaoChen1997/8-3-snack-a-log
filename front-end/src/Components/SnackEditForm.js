@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 //API url
 const API = process.env.REACT_APP_API_URL;
 
-function SnackNewForm() {
-  const [newSnack, setNewSnack] = useState({
+function SnackEditForm() {
+  const { snackId } = useParams();
+
+  const [snack, setSnack] = useState({
     name: "",
     image: "",
     fiber: "",
@@ -17,22 +19,31 @@ function SnackNewForm() {
 
   const navigate = useNavigate();
 
-  const addNewSnack = (newSnack) => {
+  const updateSnack = (snack) => {
     axios
-      .post(`${API}/snacks/`, newSnack)
+      .put(`${API}/snacks/${snackId}`, snack)
       .then(() => {
         navigate("/snacks");
       })
       .catch((error) => console.error("catch", error));
   };
 
+  useEffect(() => {
+    axios
+      .get(`${API}/snacks/${snackId}`)
+      .then((response) => {
+        setSnack(response.data.payload);
+      })
+      .catch((error) => console.error(error));
+  }, []);
+
   const handleTextChange = (event) => {
-    setNewSnack({ ...newSnack, [event.target.id]: event.target.value });
+    setSnack({ ...snack, [event.target.id]: event.target.value });
   };
 
   const handeleSubmit = (event) => {
     event.preventDefault();
-    addNewSnack(newSnack);
+    updateSnack(snack);
   };
 
   return (
@@ -42,7 +53,7 @@ function SnackNewForm() {
           <label htmlFor="name">Name: </label>
           <input
             id="name"
-            value={newSnack.name}
+            value={snack.name}
             type="text"
             onChange={handleTextChange}
             required
@@ -53,7 +64,7 @@ function SnackNewForm() {
           <label htmlFor="image">Image: </label>
           <input
             id="image"
-            value={newSnack.image}
+            value={snack.image}
             type="text"
             onChange={handleTextChange}
             required
@@ -64,7 +75,7 @@ function SnackNewForm() {
           <label htmlFor="fiber">Fiber: </label>
           <input
             id="fiber"
-            value={newSnack.fiber}
+            value={snack.fiber}
             type="number"
             onChange={handleTextChange}
             required
@@ -75,7 +86,7 @@ function SnackNewForm() {
           <label htmlFor="protein">Protein: </label>
           <input
             id="protein"
-            value={newSnack.protein}
+            value={snack.protein}
             type="number"
             onChange={handleTextChange}
             required
@@ -86,14 +97,14 @@ function SnackNewForm() {
           <label htmlFor="added_sugar">Added Sugar: </label>
           <input
             id="added_sugar"
-            value={newSnack.added_sugar}
+            value={snack.added_sugar}
             type="number"
             onChange={handleTextChange}
             required
           ></input>
         </div>
         <br />
-        <input type="submit" value="Create New Snack" />
+        <input type="submit" value="Edit Snack" />
       </form>
       <button type="button">
         <Link to="/snacks">Back</Link>
@@ -102,4 +113,4 @@ function SnackNewForm() {
   );
 }
 
-export default SnackNewForm;
+export default SnackEditForm;
