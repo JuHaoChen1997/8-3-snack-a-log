@@ -9,37 +9,11 @@ const confirmHealth = (snack) => {
     return null;
   }
 
-  //Checks if fiber is above five and added_sugar is below 5
-  if (fiberValue >= 5 && added_sugarValue < 5) {
+  if ((fiberValue >= 5 || proteinValue >= 5) && added_sugarValue < 5) {
     return true;
-  }
-
-  //Checks if protein is above 5 and added_sugar is below 5
-  if (proteinValue >= 5 && added_sugarValue < 5) {
-    return true;
-  }
-
-  //Checks if protein is above 5 or fiber is above five and added_sugar is below 5
-  if ((proteinValue >= 5 || fiberValue >= 5) && added_sugarValue < 5) {
-    return true;
-  }
-
-  // Checks if fiber is above five and added_sugar is above 5 (4 ms)
-  if (fiberValue >= 5 && added_sugarValue >= 5) {
+  } else {
     return false;
   }
-
-  //Checks if protein is above 5 and added_sugar is above 5
-  if (proteinValue >= 5 && added_sugarValue >= 5) {
-    return false;
-  }
-
-  //Checks if protein is above 5 and fiber is above five and added_sugar is above 5
-  if (proteinValue >= 5 && fiberValue >= 5 && added_sugarValue >= 5) {
-    return false;
-  }
-
-  return false;
 };
 
 module.exports = confirmHealth;
