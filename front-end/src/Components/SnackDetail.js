@@ -36,7 +36,7 @@ function SnackDetail() {
       <article>
         <h3>Name: {snack.name} </h3>
         <div>
-          <img src={snack.image} alt={snack.name} />
+          <img src={snack.image} alt={snack.name} className="snackImage" />
         </div>
         <div>Protein: {snack.protein}</div>
         <div>Fiber: {snack.fiber}</div>
