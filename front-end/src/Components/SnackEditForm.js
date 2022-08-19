@@ -35,7 +35,7 @@ function SnackEditForm() {
         setSnack(response.data.payload);
       })
       .catch((error) => console.error(error));
-  }, []);
+  }, [snackId]);
 
   const handleTextChange = (event) => {
     setSnack({ ...snack, [event.target.id]: event.target.value });
