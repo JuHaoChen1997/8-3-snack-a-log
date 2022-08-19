@@ -22,9 +22,11 @@ function Snacks() {
 
   return (
     <section className="snacksDisplay">
-      {snacks.map((snack, index) => {
-        return <Snack data={snack} key={index} />;
-      })}
+      {snacks.length > 0
+        ? snacks.map((snack, index) => {
+            return <Snack data={snack} key={index} />;
+          })
+        : null}
     </section>
   );
 }
