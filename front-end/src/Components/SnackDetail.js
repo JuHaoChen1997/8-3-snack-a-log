@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import heartSolid from "../assets/heart-solid.png";
 import heartRegular from "../assets/heart-regular.png";
+import "./SnackDetail.css";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -18,9 +19,7 @@ function SnackDetail() {
       .then((response) => {
         setSnack(response.data.payload);
       })
-      .catch((error) => {
-        console.error("catch", error);
-      });
+      .catch((error) => console.error("catch", error));
   }, [snackId]);
 
   const handleDelete = () => {
@@ -48,6 +47,7 @@ function SnackDetail() {
           <img
             src={snack.is_healthy ? heartSolid : heartRegular}
             alt={snack.is_healthy ? "healthy food" : "unhealthy food"}
+            className="heartImage"
           />
         </aside>
         <div>

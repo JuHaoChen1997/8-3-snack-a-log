@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Snack from "./Snack";
-import { Link } from "react-router-dom";
+import "./Snacks.css";
 
 //get the API url
 const API = process.env.REACT_APP_API_URL;
@@ -18,10 +18,10 @@ function Snacks() {
       .catch((error) => {
         console.log(error);
       });
-  });
+  }, []);
 
   return (
-    <section>
+    <section className="snacksDisplay">
       {snacks.map((snack) => {
         return <Snack data={snack} key={snack.id} />;
       })}

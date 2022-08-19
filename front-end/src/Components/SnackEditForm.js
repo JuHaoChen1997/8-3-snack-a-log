@@ -47,7 +47,12 @@ function SnackEditForm() {
   };
 
   return (
-    <section>
+    <section className="form">
+      <ul>
+        <li>protein is above 5</li>
+        <li>or fiber is above 5</li>
+        <li>and sugar is less than 5</li>
+      </ul>
       <form onSubmit={handeleSubmit}>
         <div>
           <label htmlFor="name">Name: </label>

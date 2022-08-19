@@ -8,18 +8,19 @@ function Snack(props) {
   return (
     <div className="Snack">
       <Link to={`/snacks/${id}`}>
-        <h4>
+        <h4 className="snackName">
           <span>
             {" "}
             <img
               src={is_healthy ? heartSolid : heartRegular}
               alt={is_healthy ? "healthy food" : "unhealthy food"}
+              className="heartImage"
             />
           </span>
           {name}
         </h4>
-        <span>
-          <img src={`${image}`} alt={`${name}`} />
+        <span className="snackImageContainer">
+          <img src={`${image}`} alt={`${name}`} className="snackImage" />
         </span>
       </Link>
     </div>

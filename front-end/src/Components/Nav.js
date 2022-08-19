@@ -4,7 +4,16 @@ import "./Nav.css";
 function Nav() {
   return (
     <nav>
-      <Link to="/snacks/new">New Snack</Link>
+      <h1 className="logo">Snacks</h1>
+      <Link to="/snacks/new" className="newSnackLink">
+        New Snack
+      </Link>
+      <Link to="/snacks" className="allSnacks">
+        All Snacks
+      </Link>
+      <Link to="/" className="homeLink">
+        Home
+      </Link>
     </nav>
   );
 }

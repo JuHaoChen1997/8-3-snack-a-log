@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import "./SnackNewForm.css";
 
 //API url
 const API = process.env.REACT_APP_API_URL;
@@ -36,7 +37,13 @@ function SnackNewForm() {
   };
 
   return (
-    <section>
+    <section className="form">
+      <p>Snack Health is determined by</p>
+      <ul>
+        <li>protein is above 5</li>
+        <li>or fiber is above 5</li>
+        <li>and sugar is less than 5</li>
+      </ul>
       <form onSubmit={handeleSubmit}>
         <div>
           <label htmlFor="name">Name: </label>

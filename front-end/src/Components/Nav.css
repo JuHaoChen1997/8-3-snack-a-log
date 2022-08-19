@@ -1,0 +1,21 @@
+nav {
+    background-color: rgb(245,245,245);
+    height: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.logo{
+    font-size: 62px;
+    margin:auto;
+}
+
+.newSnackLink,.homeLink,.allSnacks{
+    font-size: 32px;
+    text-decoration: none;
+    margin:auto;
+}
+
+.newSnackLink:hover,.homeLink:hover,.allSnacks:hover{
+    color:tomato;
+}
