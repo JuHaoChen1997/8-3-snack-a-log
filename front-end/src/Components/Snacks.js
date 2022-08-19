@@ -22,8 +22,8 @@ function Snacks() {
 
   return (
     <section className="snacksDisplay">
-      {snacks.map((snack) => {
-        return <Snack data={snack} key={snack.id} />;
+      {snacks.map((snack, index) => {
+        return <Snack data={snack} key={index} />;
       })}
     </section>
   );
