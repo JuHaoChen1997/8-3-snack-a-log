@@ -1,6 +1,6 @@
 function Home() {
   return (
-    <div className="Home">
+    <div className="Home homePage">
       <h2>Welcome to Cesar & Juhao Snack o Rama App</h2>
       <h3>Created by Cesar Ortiz & Juhao Chen</h3>
     </div>
