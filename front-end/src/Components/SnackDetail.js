@@ -32,7 +32,7 @@ function SnackDetail() {
   };
 
   return (
-    <section>
+    <section className="snackDetail">
       <article>
         <h3>Name: {snack.name} </h3>
         <div>

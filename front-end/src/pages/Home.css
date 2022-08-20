@@ -2,3 +2,8 @@
     background-image: url("../assets/wallhaven-1k2p7w.png");
     height:800px;
 }
+
+.welcomeMessage{
+    text-align: center;
+    color:lightblue;
+}

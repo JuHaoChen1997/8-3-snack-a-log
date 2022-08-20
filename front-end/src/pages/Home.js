@@ -1,8 +1,12 @@
+import "./Home.css";
+
 function Home() {
   return (
-    <div className="Home homePage">
-      <h2>Welcome to Cesar & Juhao Snack o Rama App</h2>
-      <h3>Created by Cesar Ortiz & Juhao Chen</h3>
+    <div className="homePage">
+      <h2 className="welcomeMessage">
+        Welcome to Cesar and Juhao Snack o Rama App
+      </h2>
+      <h3 className="welcomeMessage">Created by Cesar Ortiz and Juhao Chen</h3>
     </div>
   );
 }
