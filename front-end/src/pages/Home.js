@@ -4,7 +4,7 @@ function Home() {
   return (
     <div className="homePage">
       <h2 className="welcomeMessage">
-        Welcome to Cesar and Juhao Snack o Rama App
+        Welcome to Cesar and Juhao Snack- O -Rama App
       </h2>
       <h3 className="welcomeMessage">Created by Cesar Ortiz and Juhao Chen</h3>
     </div>
